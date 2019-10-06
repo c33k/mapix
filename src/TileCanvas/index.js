@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Tile from '../Tile';
+import ColorContext from '../Contexts/color-context';
 
 import * as S from './styles';
 
-const TileCanvas = ({ colors, colorIdx, tilesMap, updateTilesMap }) => {
+const TileCanvas = ({ tilesMap, updateTilesMap }) => {
   const [painting, setPainting] = useState(false);
+  const [{ colors, colorIdx }] = useContext(ColorContext);
 
   const handleStartPaintingMouseDown = () => setPainting(true);
   const handleStopPaintingMouseUp = () => setPainting(false);

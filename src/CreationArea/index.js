@@ -7,7 +7,7 @@ import * as S from './styles';
 const ROWS = 640 / 32;
 const COLS = 800 / 32;
 
-const CreationArea = ({ colors, colorIdx }) => {
+const CreationArea = () => {
   const [tilesMap, setTilesMap] = useState([]);
 
   // do it only on the creation of the component
@@ -18,14 +18,9 @@ const CreationArea = ({ colors, colorIdx }) => {
 
   return (
     <S.Container>
-      <TileCanvas
-        colors={colors}
-        colorIdx={colorIdx}
-        tilesMap={tilesMap}
-        updateTilesMap={setTilesMap}
-      />
+      <TileCanvas tilesMap={tilesMap} updateTilesMap={setTilesMap} />
       <S.Controllers>
-        <S.ExportBtn tabindex="0">Export</S.ExportBtn>
+        <S.ExportBtn>Export</S.ExportBtn>
       </S.Controllers>
     </S.Container>
   );

@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
 import ColorPickerSideBar from './ColorPickerSideBar';
 import ContentArea from './ContentArea';
+import ColorContext from './Contexts/color-context';
 
 import './App.css';
 
 function App() {
-  const colors = ['#2fbfff', '#f9d135', '#ddb621'];
-  const [colorIdx, setColorIdx] = useState(0);
+  const colorState = useState({
+    colors: ['#2fbfff', '#f9d135', '#ddb621'],
+    colorIdx: 0,
+  });
+
+  const [{ colors, colorIdx }, setColorState] = colorState;
+
+  const handleUpdateColorIdx = newIdx =>
+    setColorState({
+      colors,
+      colorIdx: newIdx,
+    });
 
   return (
-    <div className="App">
-      <ColorPickerSideBar
-        colors={colors}
-        colorIdx={colorIdx}
-        onSelectColor={setColorIdx}
-      />
-      <ContentArea colors={colors} colorIdx={colorIdx} />
-    </div>
+    <ColorContext.Provider value={colorState}>
+      <div className="App">
+        <ColorPickerSideBar
+          colors={colors}
+          colorIdx={colorIdx}
+          setColorIdx={handleUpdateColorIdx}
+        />
+        <ContentArea />
+      </div>
+    </ColorContext.Provider>
   );
 }
 

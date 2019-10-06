@@ -3,10 +3,10 @@ import CreationArea from '../CreationArea';
 
 import * as S from './styles';
 
-const ContentArea = ({ colors, colorIdx }) => {
+const ContentArea = () => {
   return (
     <S.Container>
-      <CreationArea colors={colors} colorIdx={colorIdx} />
+      <CreationArea />
       <S.ResultArea />
     </S.Container>
   );

@@ -1,8 +1,9 @@
 import React from 'react';
+
 import * as S from './styles';
 
-const ColorPickerSideBar = ({ colors, colorIdx, onSelectColor }) => {
-  const handleClick = e => onSelectColor(+e.target.dataset.coloridx);
+const ColorPickerSideBar = ({ colors, colorIdx, setColorIdx }) => {
+  const handleClick = e => setColorIdx(+e.target.dataset.coloridx);
 
   return (
     <S.SectionContainer>
