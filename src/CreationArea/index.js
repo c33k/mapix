@@ -7,7 +7,7 @@ import * as S from './styles';
 const ROWS = 640 / 32;
 const COLS = 800 / 32;
 
-const CreationArea = () => {
+const CreationArea = ({ setExportData }) => {
   const [tilesMap, setTilesMap] = useState([]);
 
   // do it only on the creation of the component
@@ -16,11 +16,24 @@ const CreationArea = () => {
     setTilesMap(generateNewTilesMap());
   }, []);
 
+  const handleExport = () => {
+    const exportStr = tilesMap.reduce(
+      (str, row, i) =>
+        str +
+        '{' +
+        row.toString() +
+        `}${i === tilesMap.length - 1 ? '}\n' : ',\n'}`,
+      '{'
+    );
+
+    setExportData(exportStr);
+  };
+
   return (
     <S.Container>
       <TileCanvas tilesMap={tilesMap} updateTilesMap={setTilesMap} />
       <S.Controllers>
-        <S.ExportBtn>Export</S.ExportBtn>
+        <S.ExportBtn onClick={handleExport}>Export</S.ExportBtn>
       </S.Controllers>
     </S.Container>
   );

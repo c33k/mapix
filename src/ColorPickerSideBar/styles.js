@@ -10,7 +10,7 @@ export const SectionContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 32px; 
+  width: 32px;
   height: 32px;
   box-sizing: border-box;
   padding: 0;

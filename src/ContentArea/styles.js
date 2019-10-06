@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const ResultArea = styled.textarea`
   flex: 1;
   height: ${contentHeight};
+  background-color: #bbb;
 
   @media (max-width: 1200px) {
     height: auto;
