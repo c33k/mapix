@@ -15,14 +15,6 @@ export const Container = styled.div`
   }
 `;
 
-// area with the buttons
-export const DrawingArea = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-`;
-
 export const ResultArea = styled.textarea`
   flex: 1;
   height: ${contentHeight};
