@@ -10,6 +10,8 @@
 - [ ] add custom tiles, not only colors
 - [ ] **use canvas instead of buttons**
 
+![Mapix Screenshot](/public/mapix-screenshot.png)
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
