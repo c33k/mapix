@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styles';
 
-const ColorPickerSideBar = ({ colors, selectedColorIdx, onSelectColor }) => {
+const ColorPickerSideBar = ({ colors, colorIdx, onSelectColor }) => {
   const handleClick = e => onSelectColor(+e.target.dataset.coloridx);
 
   return (
@@ -13,7 +13,7 @@ const ColorPickerSideBar = ({ colors, selectedColorIdx, onSelectColor }) => {
             data-coloridx={idx}
             onClick={handleClick}
             style={{
-              border: idx === selectedColorIdx ? `4px solid black` : 'none',
+              border: idx === colorIdx ? `4px solid black` : 'none',
               background: colors[idx],
             }}
           ></S.Button>

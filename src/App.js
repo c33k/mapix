@@ -12,10 +12,10 @@ function App() {
     <div className="App">
       <ColorPickerSideBar
         colors={colors}
-        selectedColorIdx={colorIdx}
+        colorIdx={colorIdx}
         onSelectColor={setColorIdx}
       />
-      <ContentArea colors={colors} selectedColorIdx={colorIdx} />
+      <ContentArea colors={colors} colorIdx={colorIdx} />
     </div>
   );
 }
