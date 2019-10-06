@@ -2,8 +2,8 @@
 
 ## Next steps
 
+- [x] add custom cursor on drawing area
 - [ ] refactor App to use context and reducer hooks (doing)
-- [ ] add custom cursor on drawing area (doing)
 - [ ] enable user to select other resolutions other than 800x640
 - [ ] add export array-map functionality (each map is represented as a 2D matrix), which will write the map in the _ResultArea_
 - [ ] add color picker (at the moment, user can only select 3 colors), enabling user to choose any color he wants

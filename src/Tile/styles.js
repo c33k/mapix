@@ -5,4 +5,5 @@ export const Tile = styled.button`
   height: 32px;
   outline: none;
   border: none;
+  cursor: inherit;
 `;

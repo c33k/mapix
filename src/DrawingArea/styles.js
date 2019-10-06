@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import cursorImg from '../assets/cursor.png';
 
 // area with the buttons
 export const Container = styled.div`
@@ -14,6 +15,10 @@ export const DrawingArea = styled.div`
   flex: 1;
   flex-direction: column;
   padding: 0;
+
+  &:hover {
+    cursor: url(${cursorImg}) 16 16, auto;
+  }
 `;
 
 export const Row = styled.div`
