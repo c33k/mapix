@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import ColorPickerSideBar from './ColorPickerSideBar';
 import ContentArea from './ContentArea';
 import ColorContext from './Contexts/color-context';
+import availableColors from './colors';
 
 import './App.css';
 
 function App() {
   const colorState = useState({
-    colors: ['#2fbfff', '#f9d135', '#ddb621'],
+    colors: availableColors,
     colorIdx: 0,
   });
 

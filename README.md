@@ -5,7 +5,7 @@
 - [x] **add custom cursor on drawing area**
 - [x] **refactor App to use context**
 - [x] **add export array-map functionality (each map is represented as a 2D matrix), which will write the map in the _ResultArea_**
-- [ ] add color picker (at the moment, user can only select 3 colors), enabling user to choose any color he wants
+- [ ] add color picker (at the moment, user can only select 3 colors), enabling user to choose any color he wants. This require us to add a module on Mapix to export the set of unique used colors to a .png file (ie. sprite!)
 - [ ] enable user to select other resolutions other than 800x640
 - [ ] add custom tiles, not only colors
 - [ ] **use canvas instead of buttons**
