@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/logo.jpg';
 
 import * as S from './styles';
 
@@ -7,6 +8,7 @@ const ColorPickerSideBar = ({ colors, colorIdx, setColorIdx }) => {
 
   return (
     <S.SectionContainer>
+      <img src={logo} alt="MAPIX LOGO" title="MAPIX LOGO" />
       <S.ColorPicker>
         {colors.map((color, idx) => (
           <S.Button
