@@ -4,12 +4,12 @@ import CreationArea from '../CreationArea';
 import * as S from './styles';
 
 const ContentArea = () => {
-  const [mapString, setMapString] = useState('');
+  const [exportedTilesMap, setTileMapStr] = useState('');
 
   return (
     <S.Container>
-      <CreationArea setExportData={setMapString} />
-      <S.ResultArea value={mapString} readOnly />
+      <CreationArea setExportData={setTileMapStr} />
+      <S.ResultArea value={exportedTilesMap} readOnly />
     </S.Container>
   );
 };

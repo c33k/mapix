@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import ColorPickerSideBar from './ColorPickerSideBar';
 import ContentArea from './ContentArea';
-import ColorContext from './Contexts/color-context';
-import availableColors from './colors';
+import AppContext, { initialAppState } from './Contexts/app-context';
 
 import './App.css';
 
 function App() {
-  const colorState = useState({
-    colors: availableColors,
-    colorIdx: 0,
-  });
-
-  const [{ colors, colorIdx }, setColorState] = colorState;
+  const appState = useState(initialAppState);
+  const [{ colors, colorIdx }, setAppState] = appState;
 
   const handleUpdateColorIdx = newIdx =>
-    setColorState({
-      colors,
+    setAppState({
+      ...appState[0],
       colorIdx: newIdx,
     });
 
   return (
-    <ColorContext.Provider value={colorState}>
+    <AppContext.Provider value={appState}>
       <div className="App">
         <ColorPickerSideBar
           colors={colors}
@@ -30,7 +25,7 @@ function App() {
         />
         <ContentArea />
       </div>
-    </ColorContext.Provider>
+    </AppContext.Provider>
   );
 }
 
