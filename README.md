@@ -6,10 +6,11 @@
 - [x] **refactor App to use context**
 - [x] **add export array-map functionality (each map is represented as a 2D matrix), which will write the map in the _ResultArea_**
 - [x] **replace buttons by canvas (I made with buttons just to allow me to implement it very fast, in some minutes. Now I showld evolve it to use canvas to allow faster drawing and better rendering)**
-- [ ] add color picker (at the moment, user can only select 9 colors), enabling user to choose any color he wants.
-- [ ] export with canvas (read colors from canvas and export 2D matrix)
 - [ ] enable user to select resolutions other than 800x640
-- [ ] add custom tiles, not only colors
+- [ ] add color picker (at the moment, user can only select 9 colors), enabling user to choose any color he wants.
+- [ ] add component with the set of unique colors used in the canvas
+- [ ] add "export sprite" functionality: gets set of unique colors and generate a tiles sprite
+- [ ] add set of custom tiles, not only colors
 
 ![Mapix Screenshot](/public/mapix-screenshot.png)
 
