@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import cursorImg from '../assets/cursor.png';
+import cursorImg from '../../assets/cursor.png';
 
 export const Canvas = styled.canvas`
   background-color: white;

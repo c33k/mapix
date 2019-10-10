@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import useTilesMap from './use-tilesmap';
-import AppContext from '../Contexts/app-context';
+import AppContext from '../../Contexts/app-context';
+import TilesMapContext from '../../Contexts/tilesmap-context';
 import {
   drawCanvas,
   paintTile,
@@ -12,16 +12,25 @@ import * as S from './styles';
 
 const TileCanvas = () => {
   const [painting, setPainting] = useState(false);
+  const [{ colors, colorIdx, resolution, tileSize }] = useContext(AppContext);
+  const [tilesMap, setTilesMap] = useContext(TilesMapContext);
   const canvasRef = useRef(null);
-  const [currentContext, updateContext] = useContext(AppContext);
-
-  const { colors, colorIdx, width, height, tileSize } = currentContext;
-
-  const [tilesMap, setTilesMap] = useTilesMap(width, height, tileSize);
 
   useEffect(() => {
-    drawCanvas(canvasRef.current, width, height, tileSize);
-  }, [width, height, tileSize]);
+    drawCanvas(canvasRef.current, resolution, tileSize);
+  }, [resolution, tileSize]);
+
+  const recalculateTilesMap = (ctx, x, y) => {
+    const pos = getTilePosition(x, y, tileSize);
+
+    // copy tilesMap
+    const newMap = [...tilesMap];
+
+    newMap[pos.y][pos.x] = colorIdx;
+
+    paintTile(ctx, x, y, tileSize, colors[colorIdx]);
+    setTilesMap(newMap);
+  };
 
   const handleStartPaintingMouseDown = () => setPainting(true);
   const handleStopPaintingMouseUp = () => setPainting(false);
@@ -34,13 +43,7 @@ const TileCanvas = () => {
       e.clientY
     );
 
-    const pos = getTilePosition(rect.x, rect.y, tileSize);
-    const newMap = [...tilesMap];
-    newMap[pos.y][pos.x] = colorIdx;
-
-    paintTile(ctx, rect.x, rect.y, tileSize, colors[colorIdx]);
-    updateContext({ ...currentContext, tilesMap });
-    setTilesMap(newMap);
+    recalculateTilesMap(ctx, rect.x, rect.y);
   };
 
   const handleMouseMove = e => {
@@ -50,10 +53,10 @@ const TileCanvas = () => {
 
   return (
     <S.Canvas
-      style={{ width, height }}
+      style={{ width: resolution.width, height: resolution.height }}
       ref={canvasRef}
-      width={width}
-      height={height}
+      width={resolution.width}
+      height={resolution.height}
       onClick={handleClickTile}
       onMouseDown={handleStartPaintingMouseDown}
       onMouseUp={handleStopPaintingMouseUp}

@@ -4,12 +4,11 @@ import availableColors from '../colors';
 export const initialAppState = {
   colors: availableColors,
   colorIdx: 0,
-  width: 800,
-  height: 640,
+  resolution: {
+    width: 800,
+    height: 640,
+  },
   tileSize: 32,
-  tilesMap: [[]],
 };
 
-const AppContext = createContext([initialAppState, obj => obj]);
-
-export default AppContext;
+export default createContext([initialAppState, obj => obj]);

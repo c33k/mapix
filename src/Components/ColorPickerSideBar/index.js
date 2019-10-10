@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from '../assets/logo.jpg';
+import logo from '../../assets/logo.jpg';
 
 import * as S from './styles';
 
-const ColorPickerSideBar = ({ colors, colorIdx, setColorIdx }) => {
-  const handleClick = e => setColorIdx(+e.target.dataset.coloridx);
+const ColorPickerSideBar = ({ colors, colorIdx, pickColor }) => {
+  const handleClick = e => pickColor(parseInt(e.target.dataset.coloridx));
 
   return (
     <S.SectionContainer>
@@ -26,4 +26,4 @@ const ColorPickerSideBar = ({ colors, colorIdx, setColorIdx }) => {
   );
 };
 
-export default React.memo(ColorPickerSideBar);
+export default ColorPickerSideBar;

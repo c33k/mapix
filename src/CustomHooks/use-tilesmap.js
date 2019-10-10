@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useTilesMap = (width, height, tileSize) => {
+const useTilesMap = ({ width, height }, tileSize) => {
   const [tilesMap, setTilesMap] = useState([]);
 
   useEffect(() => {

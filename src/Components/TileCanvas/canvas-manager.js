@@ -1,4 +1,4 @@
-export const drawCanvas = (el, width, height, tileSize) => {
+export const drawCanvas = (el, { width, height }, tileSize) => {
   if (!el) return;
   console.log('drawing...');
   const ctx = el.getContext('2d');
@@ -39,7 +39,7 @@ export const normalizeMousePosition = (canvas, clientX, clientY) => {
   const scaleY = canvas.height / canvasRect.height;
 
   return {
-    x: (clientX - canvasRect.left) * scaleX,
-    y: (clientY - canvasRect.top) * scaleY,
+    x: ((clientX - canvasRect.left) * scaleX) | 0,
+    y: ((clientY - canvasRect.top) * scaleY) | 0,
   };
 };
